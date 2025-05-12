@@ -11,15 +11,15 @@ if user_choice == "c":
     app_name = input("Which app are you creating a password for? ")
     name = input("Enter your Email/Username (e.g., your email or username): ")
     password = input("Enter your password (e.g., a strong and unique password): ")
-    print("Creating a password...")
-    with open("database.txt", "a", encoding="utf-8") as file:  # Use append mode
-        file.write(f"{app_name} - {name} - {password}\n")
+    print("Creating the password...")
+    with open("database.csv", "a", encoding="utf-8") as file:  # Use append mode
+        file.write(f'"{app_name}","{name}","{password}"\n')
         print("Password created successfully!")        
 
 elif user_choice == "r":
-    print("Reading a password...")
+    print("Reading the Database...")
     try:
-        with open("database.txt", "r", encoding="utf-8") as file:
+        with open("database.csv", "r", encoding="utf-8") as file:
             content = file.read()
             if content.strip() == "":
                 print("No saved passwords found. Please create one first.")
